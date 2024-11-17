@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS-GAME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div  class="container">
+            <h1 class="title">
+                Rock - Paper - Scissor
+            </h1>
+            <div class="btn">
+    
+                <button id="rock" onclick="RPS('Rock');"><img src="rock-emoji.png" alt=""></button>
+    
+    
+                <button id="papper" onclick="RPS('Paper');"><img src="paper-emoji.png" alt=""></button>
+    
+    
+                <button id="scissor" onclick="RPS('Scissor');"><img src="scissor-emoji.png" alt=""></button>
+                <p class="results">you win</p>
+                <div style="display: flex;" class="hand">
+                    <div>
+                        <h3>You</h3>
+                        <img src="Rock-emoji.png" alt=""></div>
+                    <div>
+                        <h3>Computer</h3><img src="Paper-emoji.png" alt=""></div>
+                </div>
+                <p class="score"></p>
+    
+                
+            </div>
+            <div>
+                <button class="reset-btn" id="reset" onclick="reset()">Reset Score</button>
+            <button class="autoplay-btn" onclick="AutoPlay()">AutoPLay</button>
+            </div>
+        </div> 
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
