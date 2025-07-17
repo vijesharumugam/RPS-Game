@@ -1,47 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPS-GAME</title>
+    <title>Rock Paper Scissors Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
     <div class="main">
-        <div  class="container">
-            <h1 class="title">
-                Rock - Paper - Scissor
-            </h1>
-            <div class="btn">
-    
-                <button id="rock" onclick="RPS('Rock');"><img src="rock-emoji.png" alt=""></button>
-    
-    
-                <button id="papper" onclick="RPS('Paper');"><img src="paper-emoji.png" alt=""></button>
-    
-    
-                <button id="scissor" onclick="RPS('Scissor');"><img src="scissor-emoji.png" alt=""></button>
-                <p class="results">you win</p>
-                <div style="display: flex;" class="hand">
-                    <div>
-                        <h3>You</h3>
-                        <img src="Rock-emoji.png" alt=""></div>
-                    <div>
-                        <h3>Computer</h3><img src="Paper-emoji.png" alt=""></div>
+        <div class="container">
+            <div class="header">
+                <h1 class="title">Rock Paper Scissors</h1>
+                <button id="darkModeToggle" class="mode-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <div class="player-info">
+                <input type="text" id="playerName" placeholder="Enter your name" class="player-name-input">
+            </div>
+
+            <div class="game-modes">
+                <button class="mode-btn active" data-mode="casual">Casual</button>
+                <button class="mode-btn" data-mode="best-of-3">Best of 3</button>
+                <button class="mode-btn" data-mode="best-of-5">Best of 5</button>
+            </div>
+
+            <div class="round-info">
+                <div class="round-number">Round <span id="roundNumber">1</span></div>
+                <div class="score">
+                    <div class="score-item">
+                        <span class="score-label">Wins</span>
+                        <span class="score-value wins" id="winScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Losses</span>
+                        <span class="score-value losses" id="lossScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Ties</span>
+                        <span class="score-value" id="tieScore">0</span>
+                    </div>
                 </div>
-                <p class="score"></p>
-    
-                
             </div>
-            <div>
-                <button class="reset-btn" id="reset" onclick="reset()">Reset Score</button>
-            <button class="autoplay-btn" onclick="AutoPlay()">AutoPLay</button>
+
+            <div class="btn">
+                <button id="rock" onclick="RPS('Rock');">
+                    <img src="rock-emoji.png" alt="Rock">
+                </button>
+                <button id="paper" onclick="RPS('Paper');">
+                    <img src="paper-emoji.png" alt="Paper">
+                </button>
+                <button id="scissor" onclick="RPS('Scissor');">
+                    <img src="scissor-emoji.png" alt="Scissor">
+                </button>
             </div>
-        </div> 
+
+            <p class="results">Choose your move!</p>
+
+            <div class="hand">
+                <div class="player-move">
+                    <h3>You</h3>
+                    <img src="Rock-emoji.png" alt="Your move">
+                </div>
+                <div class="computer-move">
+                    <h3>Computer</h3>
+                    <img src="Rock-emoji.png" alt="Computer's move">
+                </div>
+            </div>
+
+            <div class="move-history">
+                <div class="move-history-header">
+                    <h3 class="move-history-title">Move History</h3>
+                    <div class="history-stats">
+                        <div class="stat-item">Win Rate: <span id="winRate">0%</span></div>
+                        <div class="stat-item">Longest Streak: <span id="longestStreak">0</span></div>
+                    </div>
+                </div>
+                <div class="history-list" id="moveHistory"></div>
+            </div>
+
+            <div class="controls">
+                <button class="reset-btn" id="reset" onclick="reset()">
+                    <i class="fas fa-redo"></i> Reset Score
+                </button>
+                <button class="autoplay-btn" onclick="AutoPlay()">
+                    <i class="fas fa-robot"></i> AutoPlay
+                </button>
+            </div>
+        </div>
     </div>
+    <audio id="moveSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
+    <audio id="loseSound" src="https://assets.mixkit.co/active_storage/sfx/2658/2658-preview.mp3"></audio>
     <script src="script.js"></script>
 </body>
-
 </html>
